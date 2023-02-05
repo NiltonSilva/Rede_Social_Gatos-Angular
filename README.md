@@ -6,3 +6,8 @@ Para executar o projeto:
 ```
 npm start
 ```
+
+Para subir a API
+```
+npm start
+```
