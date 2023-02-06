@@ -10,14 +10,14 @@ export class UsuarioExisteService {
 
   constructor(private novoUsuarioService: NovoUsuarioService) { }
 
-  usuarioJaExiste() {
+  usuarioJaExiste() {   // este método valida se um userName que está sendo cadastro já existe.
     return (control: AbstractControl) => {
       return control.valueChanges.pipe(
         switchMap((nomeUsuario) =>
           this.novoUsuarioService.verificaUsuarioExistente(nomeUsuario)
         ),
         map((usuarioExiste) =>
-          usuarioExiste ? { usuarioExistente: true } : null
+          (usuarioExiste ? { usuarioExistente: true } : null)
         ),
         first()
       );
