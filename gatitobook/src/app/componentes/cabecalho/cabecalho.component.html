@@ -1,0 +1,21 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand">Gatito Book</a>
+    <!-- O '| async' vai pegar a informação do usuário e fazer o subscribe aqui dentro do template -->
+    <div *ngIf="user$ | async as user">
+      <div *ngIf="user.name; else login">
+        <i class="fa fa-user-circle mr-1"></i>
+        <a class="mr-1">{{ user.name }}</a>
+        <!-- aqui consigo acessar user.name pq o user$ é um observable de usuarios -->
+        <a (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <ng-template #login>
+    <span class="navbar-text">
+      <a [routerLink]="['']">Login</a>
+    </span>
+  </ng-template>
+
+</header>
